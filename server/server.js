@@ -22,6 +22,14 @@ app.get('/inventory', (req, res) => {
   res.send(inventory);
 });
 
+app.post('/inventory', (req, res) => {
+  const inventoryItem = req.body;
+
+  inventory.push(inventoryItem);
+
+  res.sendStatus(201);
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on PORT: ${PORT}`);
 })
