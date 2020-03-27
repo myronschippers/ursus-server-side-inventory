@@ -46,6 +46,7 @@ function saveInventory(newInventory) {
   })
   .then((response) => {
     console.log(response);
+    getInventory();
   })
   .catch((err) => {
     console.log('err');
