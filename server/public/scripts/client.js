@@ -9,7 +9,17 @@ function init() {
 
 function clickAdd() {
   console.log('CLICKED ADD!!!');
+  const enteredInventory = {
+    name: $('.js-input-name').val(),
+    description: $('.js-input-description').val(),
+  };
+
   // save inventory to the server
+  saveInventory(enteredInventory);
+
+  // clearing all form fields
+  $('.js-input-name').val('');
+  $('.js-input-description').val('');
 }
 
 function getInventory() {
@@ -28,6 +38,20 @@ function getInventory() {
 }
 
 // use AJAX to save inventory to server
+function saveInventory(newInventory) {
+  $.ajax({
+    method: 'POST',
+    url: '/inventory',
+    data: newInventory,
+  })
+  .then((response) => {
+    console.log(response);
+  })
+  .catch((err) => {
+    console.log('err');
+    alert('There was an error saving inventory.');
+  });
+}
 
 
 // render inventory to the DOM
