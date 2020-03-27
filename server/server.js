@@ -18,6 +18,8 @@ const inventory = [
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.use(express.static('server/public'));
+
 app.get('/inventory', (req, res) => {
   res.send(inventory);
 });
