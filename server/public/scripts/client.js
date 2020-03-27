@@ -2,8 +2,14 @@ $(document).ready(init);
 
 function init() {
   console.log('DOM is READY!!!');
+  $('.js-btn-add-inventory').on('click', clickAdd);
 
   getInventory();
+}
+
+function clickAdd() {
+  console.log('CLICKED ADD!!!');
+  // save inventory to the server
 }
 
 function getInventory() {
@@ -20,6 +26,8 @@ function getInventory() {
     alert('There was an error finding inventory.');
   });
 }
+
+// use AJAX to save inventory to server
 
 
 // render inventory to the DOM
